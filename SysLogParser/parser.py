@@ -22,7 +22,7 @@ class SysLogParser(object):
         :return: Iterable containing syslog string lines converted into `SysLogEntry` objects
         """
 
-        return map(lambda line: SysLogParser.SysLogEntry(line), syslog_lines)
+        return list(map(lambda line: SysLogParser.SysLogEntry(line), syslog_lines))
 
     @staticmethod
     def parse_rfc3164(syslog_lines):
@@ -33,7 +33,7 @@ class SysLogParser(object):
         :return: Iterable containing syslog string lines converted into `SysLogEntry` objects
         """
 
-        return map(lambda line: SysLogParser.SysLogEntry(line), syslog_lines)
+        return list(map(lambda line: SysLogParser.SysLogEntry(line), syslog_lines))
 
     @staticmethod
     def format_rfc5424(syslog_entries):
@@ -44,7 +44,7 @@ class SysLogParser(object):
         :return: Iterable containing `SysLogEntry` objects formatted into syslog file line
         """
 
-        return map(lambda entry: entry.line_value, syslog_entries)
+        return list(map(lambda entry: entry.line_value, syslog_entries))
 
     @staticmethod
     def format_rfc3164(syslog_entries):
@@ -55,4 +55,4 @@ class SysLogParser(object):
         :return: Iterable containing `SysLogEntry` objects formatted into syslog file line
         """
 
-        return map(lambda entry: entry.line_value, syslog_entries)
+        return list(map(lambda entry: entry.line_value, syslog_entries))
